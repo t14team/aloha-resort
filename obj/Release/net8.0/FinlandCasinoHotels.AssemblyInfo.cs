@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FinlandCasinoHotels")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a3900acb95d1bdacfae2675cb8d6f312e5dc54ac")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d283729035bb581146b6f571854a72ec3183e404")]
 [assembly: System.Reflection.AssemblyProductAttribute("FinlandCasinoHotels")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FinlandCasinoHotels")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
