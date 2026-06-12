@@ -1,7 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using FinlandCasinoHotels.Models;
-using littleworldadvent.BritexUtils;
 
 namespace FinlandCasinoHotels.Controllers;
 
@@ -14,7 +13,7 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public async Task<IActionResult> Index(string? gclid,string? gbraid)
+    public IActionResult Index(string? gclid, string? gbraid)
     {
         // string googleId = "";
 
