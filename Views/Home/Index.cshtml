@@ -1,0 +1,201 @@
+﻿@model List<FinlandCasinoHotels.Models.HotelCard>
+@{
+    ViewData["Title"] = "Home";
+    var featured = Model.First();
+    var others = Model.Skip(1).ToList();
+}
+
+<section class="hero">
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-content">
+        <span class="hero-badge">Aloha Spirit</span>
+        <h1>Tropical Casino Resorts in Paradise</h1>
+        <p>Experience the thrill of world-class gaming wrapped in Hawaiian warmth — oceanfront suites, sunset luaus, and unforgettable island hospitality across Hawaii's most stunning destinations.</p>
+        <div class="hero-actions">
+            <a class="btn btn-gold" asp-action="Contact">Book Your Escape</a>
+            <a class="btn btn-outline-gold" asp-action="About">Discover Aloha</a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-number">4</span>
+                <span class="stat-label">Island Resorts</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">21+</span>
+                <span class="stat-label">Gaming Age</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Casino Floor</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="section-label">Island Destinations</span>
+            <h2>Featured Casino Hotels</h2>
+            <p>From Waikiki's vibrant shores to Kauai's hidden cliffs — handpicked Hawaiian resorts where tropical luxury meets casino excitement.</p>
+        </div>
+        <div class="hotel-showcase">
+            <div class="hotel-row fade-in">
+                <div class="hotel-row-image">
+                    <img src="@featured.ImageUrl" alt="@featured.Name" loading="lazy" />
+                </div>
+                <div class="hotel-row-content">
+                    <span class="hotel-location">@featured.Location</span>
+                    <h3>@featured.Name</h3>
+                    <p>@featured.Description</p>
+                    <div class="amenity-tags">
+                        @foreach (var amenity in featured.Amenities)
+                        {
+                            <span class="amenity-tag">@amenity</span>
+                        }
+                    </div>
+                    <a class="btn btn-outline-gold mt-3" asp-action="Contact">Reserve Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="hotel-grid">
+            @foreach (var hotel in others)
+            {
+                <div class="hotel-card fade-in">
+                    <div class="hotel-card-image">
+                        <img src="@hotel.ImageUrl" alt="@hotel.Name" loading="lazy" />
+                    </div>
+                    <div class="hotel-card-body">
+                        <span class="hotel-location">@hotel.Location</span>
+                        <h3>@hotel.Name</h3>
+                        <p>@hotel.Description</p>
+                        <div class="amenity-tags">
+                            @foreach (var amenity in hotel.Amenities)
+                            {
+                                <span class="amenity-tag">@amenity</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="section features-section">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="section-label">Why Aloha Resort</span>
+            <h2>The Island Casino Experience</h2>
+            <p>More than gaming — a complete Hawaiian escape designed around sun, sea, and aloha spirit.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🌺</div>
+                <h3>Island Hospitality</h3>
+                <p>Warm aloha welcome at every property — from lei greetings to personalized concierge service rooted in Hawaiian tradition.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🎰</div>
+                <h3>Premium Gaming</h3>
+                <p>State-of-the-art slot machines, table games, and poker rooms in open-air settings with ocean breezes and tropical ambiance.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🌊</div>
+                <h3>Oceanfront Living</h3>
+                <p>Wake up to Pacific sunrise views, private beach access, and infinity pools that blend seamlessly with the horizon.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🥂</div>
+                <h3>Sunset Entertainment</h3>
+                <p>Live luaus, rooftop bars, and world-class dining — because the night in paradise is just getting started.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section experience-sections">
+    <div class="container">
+        <div class="experience-block fade-in" id="accommodation">
+            <div class="experience-header">
+                <span class="section-label">Accommodation</span>
+                <h2>Tropical Suites with Ocean Views</h2>
+            </div>
+            <div class="experience-body">
+                <p>
+                    Every room at Aloha Resort properties is designed to capture the essence of island living — natural wood finishes,
+                    breezy lanais, and floor-to-ceiling windows framing turquoise waters and volcanic peaks. From deluxe oceanfront
+                    suites to private villas with plunge pools, comfort meets tropical elegance at every turn.
+                </p>
+                <p>
+                    Whether you're here for a weekend casino getaway or an extended island retreat, our accommodations provide
+                    the perfect sanctuary between gaming sessions, beach days, and sunset celebrations.
+                </p>
+            </div>
+        </div>
+
+        <div class="experience-block fade-in" id="gaming">
+            <div class="experience-header">
+                <span class="section-label">Gaming Experience</span>
+                <h2>Casino Floors Under the Hawaiian Sky</h2>
+            </div>
+            <div class="experience-body">
+                <p>
+                    Our casino floors combine cutting-edge gaming technology with the relaxed rhythm of island life. Enjoy
+                    thousands of slot machines, blackjack, roulette, baccarat, and poker in spacious, open environments
+                    accented by tropical landscaping and panoramic views.
+                </p>
+                <p>
+                    High-limit salons, VIP gaming lounges, and outdoor terrace tables offer something for every player —
+                    from casual visitors trying their luck to seasoned high rollers seeking an exclusive Hawaiian setting.
+                </p>
+            </div>
+        </div>
+
+        <div class="experience-block fade-in" id="wellness">
+            <div class="experience-header">
+                <span class="section-label">Spa &amp; Wellness</span>
+                <h2>Restore Your Spirit, Island Style</h2>
+            </div>
+            <div class="experience-body">
+                <p>
+                    Balance the excitement of the casino floor with authentic Hawaiian wellness rituals. Our spa facilities
+                    feature lomi lomi massage, volcanic stone therapy, outdoor treatment pavilions, and hydrotherapy pools
+                    surrounded by tropical gardens.
+                </p>
+                <p>
+                    Yoga at sunrise, guided meditation on the beach, and traditional hula lessons — because true paradise
+                    means nurturing body and spirit as much as enjoying the thrill of the game.
+                </p>
+            </div>
+        </div>
+
+        <div class="experience-block experience-block-highlight fade-in" id="responsible-gaming">
+            <div class="experience-header">
+                <span class="section-label">Responsible Gaming</span>
+                <h2>Play Responsibly — Guests 21+ Only</h2>
+            </div>
+            <div class="experience-body">
+                <p>
+                    Casino gaming at Aloha Resort properties is available exclusively to guests aged 21 and older, in
+                    compliance with Hawaii gaming regulations. We are committed to promoting responsible play and ensuring
+                    gaming remains a fun, entertaining part of your island vacation.
+                </p>
+                <p>
+                    Self-exclusion programs, spending limits, and trained support staff are available at every property.
+                    If you or someone you know needs help, resources are always within reach.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="cta-banner fade-in">
+            <h2>Your Paradise Awaits</h2>
+            <p>Book your stay at one of Hawaii's finest casino resorts — where aloha spirit meets world-class gaming.</p>
+            <a class="btn btn-gold" asp-action="Contact">Plan Your Trip</a>
+        </div>
+    </div>
+</section>

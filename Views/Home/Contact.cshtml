@@ -1,0 +1,104 @@
+@model FinlandCasinoHotels.Models.ContactViewModel
+@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<section class="page-header">
+    <div class="container">
+        <nav class="breadcrumb-nav">
+            <a asp-action="Index">Home</a>
+            <span>/</span>
+            <span>Contact Us</span>
+        </nav>
+        <h1>Contact Us</h1>
+        <p>Ready to escape to paradise? Our island team is here to help you plan your perfect Hawaiian casino getaway.</p>
+    </div>
+</section>
+
+<section class="content-section">
+    <div class="container">
+        <div class="contact-grid fade-in">
+            <div class="contact-info-card">
+                <h3>Get in Touch</h3>
+
+                <div class="contact-detail">
+                    <div class="contact-detail-icon">📍</div>
+                    <div>
+                        <h5>Address</h5>
+                        <p>2255 Kalakaua Ave<br />Honolulu, HI 96815</p>
+                    </div>
+                </div>
+
+                <div class="contact-detail">
+                    <div class="contact-detail-icon">📞</div>
+                    <div>
+                        <h5>Phone</h5>
+                        <p>+1 (808) 555-0142</p>
+                    </div>
+                </div>
+
+                <div class="contact-detail">
+                    <div class="contact-detail-icon">✉️</div>
+                    <div>
+                        <h5>Email</h5>
+                        <p>info@aloha-resort.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-detail">
+                    <div class="contact-detail-icon">🕐</div>
+                    <div>
+                        <h5>Business Hours</h5>
+                        <p>Monday – Friday: 8:00 – 18:00 HST<br />Saturday – Sunday: 9:00 – 17:00 HST</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-card">
+                <h3>Send Us a Message</h3>
+
+                @if (TempData["Success"] != null)
+                {
+                    <div class="alert-success-custom">
+                        Mahalo! Your message has been received. Our team will get back to you within 24 hours.
+                    </div>
+                }
+
+                <form asp-action="Contact" method="post">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label"></label>
+                        <input asp-for="Name" class="form-control" placeholder="John Doe" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label"></label>
+                        <input asp-for="Email" class="form-control" placeholder="john@example.com" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Subject" class="form-label"></label>
+                        <input asp-for="Subject" class="form-control" placeholder="Reservation Inquiry" />
+                        <span asp-validation-for="Subject" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Message" class="form-label"></label>
+                        <textarea asp-for="Message" class="form-control" placeholder="Tell us about your dream island getaway..."></textarea>
+                        <span asp-validation-for="Message" class="text-danger"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-gold w-100">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
