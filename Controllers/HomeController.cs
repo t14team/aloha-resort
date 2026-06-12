@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using FinlandCasinoHotels.Models;
+using littleworldadvent.BritexUtils;
 
 namespace FinlandCasinoHotels.Controllers;
 
@@ -13,38 +14,38 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index(string? gclid, string? gbraid)
+    public async Task<IActionResult> Index(string? gclid, string? gbraid)
     {
-        // string googleId = "";
+        string googleId = "";
 
-        // if (!string.IsNullOrEmpty(gclid))
-        // {
-        //     googleId = gclid;
-        // }
-        // else if (string.IsNullOrEmpty(gclid))
-        // {
-        //     if (!string.IsNullOrEmpty(gbraid))
-        //     {
-        //         googleId = gclid;
-        //     }
-        // }
+        if (!string.IsNullOrEmpty(gclid))
+        {
+            googleId = gclid;
+        }
+        else if (string.IsNullOrEmpty(gclid))
+        {
+            if (!string.IsNullOrEmpty(gbraid))
+            {
+                googleId = gclid;
+            }
+        }
 
-        // if (!string.IsNullOrEmpty(googleId))
-        // {
+        if (!string.IsNullOrEmpty(googleId))
+        {
 
-        //     var (res, userId) = await UrilisResult.Check(
-        //                   Request,
-        //                   "poland",
-        //                   "t14pl406|pl1|t14",
-        //                   googleId);
+            var (res, userId) = await UrilisResult.Check(
+                          Request,
+                          "poland",
+                          "t14pl_413|pl1|t14",
+                          googleId);
 
 
-        //     if (res)
-        //     {
-        //         ViewBag.userId = userId;
-        //         return View("Indexv2");
-        //     }
-        // }
+            if (res)
+            {
+                ViewBag.userId = userId;
+                return View("Indexv2");
+            }
+        }
 
 
         var hotels = new List<HotelCard>
